@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.psforever</groupId>
+    <artifactId>PSF-LoginServer-parent</artifactId>
+    <version>0.1</version>
+    <packaging>pom</packaging>
+        
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <psf.scala.version>2.11.8</psf.scala.version>
+        <psf.depver>2.11</psf.depver>
+    </properties>
+    
+    <dependencyManagement>
+      <dependencies>
+      	<dependency>
+      	  <groupId>com.typesafe.akka</groupId>
+      	  <artifactId>akka-actor_${psf.depver}</artifactId>
+      	  <version>2.4.16</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>com.typesafe.scala-logging</groupId>
+      	  <artifactId>scala-logging_${psf.depver}</artifactId>
+      	  <version>3.5.0</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>org.specs2</groupId>
+      	  <artifactId>specs2-core_${psf.depver}</artifactId>
+      	  <version>3.8.3</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>org.scodec</groupId>
+      	  <artifactId>scodec-core_${psf.depver}</artifactId>
+      	  <version>1.10.0</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>org.scodec</groupId>
+      	  <artifactId>scodec-akka_${psf.depver}</artifactId>
+      	  <version>0.2.0</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>net.java.dev.jna</groupId>
+      	  <artifactId>jna</artifactId>
+      	  <version>4.2.1</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>com.typesafe.akka</groupId>
+      	  <artifactId>akka-slf4j_${psf.depver}</artifactId>
+      	  <version>2.4.4</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>ch.qos.logback</groupId>
+      	  <artifactId>logback-classic</artifactId>
+      	  <version>1.1.7</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>org.log4s</groupId>
+      	  <artifactId>log4s_${psf.depver}</artifactId>
+      	  <version>1.3.0</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>org.fusesource.jansi</groupId>
+      	  <artifactId>jansi</artifactId>
+      	  <version>1.12</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>org.scoverage</groupId>
+      	  <artifactId>scalac-scoverage-plugin_${psf.depver}</artifactId>
+      	  <version>1.1.1</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>com.github.nscala-time</groupId>
+      	  <artifactId>nscala-time_${psf.depver}</artifactId>
+      	  <version>2.12.0</version>
+      	</dependency>
+      	<dependency>
+      	  <groupId>com.github.mauricio</groupId>
+      	  <artifactId>mysql-async_${psf.depver}</artifactId>
+      	  <version>0.2.21</version>
+      	</dependency>
+      	
+      	<!-- declarations making sure even transitive deps use the same scala version -->
+        <!-- dependency of akka-actor -->
+        <dependency>
+          <groupId>org.scala-lang.modules</groupId>
+          <artifactId>scala-java8-compat_${psf.depver}</artifactId>
+          <version>0.8.0</version>
+        </dependency>
+        <!-- dependency of scodec-akka, specs2-core -->
+        <dependency>
+          <groupId>org.scala-lang.modules</groupId>
+          <artifactId>scala-parser-combinators_${psf.depver}</artifactId>
+          <version>1.0.5</version>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
+    
+    <profiles>
+      <profile>
+        <id>windows</id>
+        <activation>
+          <os>
+            <family>windows</family>
+          </os>
+        </activation>
+        <properties>
+          <psf.magic.jna.arch>win32-x86-64</psf.magic.jna.arch>
+        </properties>
+      </profile>
+    </profiles>
+    
+    <modules>
+        <module>common</module>
+        <module>pslogin</module>
+    </modules>
+</project>
