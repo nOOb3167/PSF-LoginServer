@@ -134,12 +134,12 @@
             </execution>
             <execution>
               <id>scala-run</id>
-              <phase>none</phase>
+              <phase>initialize</phase>
               <goals>
                 <goal>run</goal>
               </goals>
               <configuration>
-                <displayCmd>true</displayCmd>
+                <launcher>scala-run-launcher</launcher>
               </configuration>
             </execution>
           </executions>
