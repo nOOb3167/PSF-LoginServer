@@ -87,6 +87,7 @@
                 <goal>testCompile</goal>
               </goals>
               <configuration>
+                <recompileMode>incremental</recompileMode>
                 <args>
                   <arg>-unchecked</arg>
                   <arg>-deprecation</arg>
