@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.psforever</groupId>
+    <artifactId>PSF-LoginServer-distribution</artifactId>
+    <version>0.1</version>
+    <packaging>pom</packaging>
+    
+    <parent>
+   	  <groupId>net.psforever</groupId>
+      <artifactId>PSF-LoginServer-parent</artifactId>
+      <version>0.1</version>
+    </parent>
+    
+    <properties>
+      <psf.parent.project.basedir>${project.basedir}/../../</psf.parent.project.basedir>
+    </properties>
+    
+    <dependencies>
+      <dependency>
+        <groupId>net.psforever</groupId>
+        <artifactId>PSF-LoginServer-common</artifactId>
+        <version>0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>net.psforever</groupId>
+        <artifactId>PSF-LoginServer-pslogin</artifactId>
+        <version>0.1</version>
+      </dependency>
+    </dependencies>
+    
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.0.0</version>
+          <executions>
+            <execution>
+              <id>psf-distribution</id>
+              <phase>package</phase>
+              <goals>
+                <goal>single</goal>
+              </goals>
+              <configuration>
+                <!-- https://github.com/apache/maven-plugins/blob/trunk/maven-assembly-plugin/src/main/java/org/apache/maven/plugins/assembly/mojos/AbstractAssemblyMojo.java#L144
+                       hilariously this finalName option does not appear in the mojo documentation -->
+                <finalName>pack</finalName>
+                <descriptors>
+                  <descriptor>${psf.parent.project.basedir}/scripts/distribution/psf_distribution_descriptor.xml</descriptor>
+                </descriptors>
+                <archiveBaseDirectory>${psf.parent.project.basedir}</archiveBaseDirectory>
+                <attach>false</attach>
+                <recompressZippedFiles>false</recompressZippedFiles>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </build>
+</project>
