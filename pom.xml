@@ -78,20 +78,6 @@
       	  <groupId>com.github.mauricio</groupId>
       	  <artifactId>mysql-async_${psf.depver}</artifactId>
       	  <version>0.2.21</version>
-      	</dependency>
-      	
-      	<!-- declarations making sure even transitive deps use the same scala version -->
-        <!-- dependency of akka-actor -->
-        <dependency>
-          <groupId>org.scala-lang.modules</groupId>
-          <artifactId>scala-java8-compat_${psf.depver}</artifactId>
-          <version>0.8.0</version>
-        </dependency>
-        <!-- dependency of scodec-akka, specs2-core -->
-        <dependency>
-          <groupId>org.scala-lang.modules</groupId>
-          <artifactId>scala-parser-combinators_${psf.depver}</artifactId>
-          <version>1.0.5</version>
         </dependency>
       </dependencies>
     </dependencyManagement>
