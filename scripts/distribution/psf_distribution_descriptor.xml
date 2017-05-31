@@ -8,11 +8,20 @@
   <includeBaseDirectory>false</includeBaseDirectory>
   <fileSets>
     <fileSet>
-      <directory>./</directory>
-      <outputDirectory>./</outputDirectory>
-      <includes>
-        <include>pscrypto-lib</include>
-      </includes>
+      <directory>./pscrypto-lib</directory>
+      <outputDirectory>./pscrypto-lib</outputDirectory>
+    </fileSet>
+    <fileSet>
+      <directory>./config</directory>
+      <outputDirectory>./config</outputDirectory>
     </fileSet>
   </fileSets>
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>./lib</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+      </includes>
+    </dependencySet>
+  </dependencySets>
 </assembly>
