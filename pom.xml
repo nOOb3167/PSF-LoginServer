@@ -82,56 +82,6 @@
       </dependencies>
     </dependencyManagement>
     
-    <profiles>
-      <profile>
-        <id>windows-ia64</id>
-        <activation>
-          <os>
-            <family>windows</family>
-            <arch>ia64</arch>
-          </os>
-        </activation>
-        <properties>
-          <psf.magic.jna.arch>win32-x86-64</psf.magic.jna.arch>
-        </properties>
-      </profile>
-      <profile>
-        <id>windows-amd64</id>
-        <activation>
-          <os>
-            <family>windows</family>
-            <arch>amd64</arch>
-          </os>
-        </activation>
-        <properties>
-          <psf.magic.jna.arch>win32-x86-64</psf.magic.jna.arch>
-        </properties>
-      </profile>
-      <profile>
-        <id>windows-x86</id>
-        <activation>
-          <os>
-            <family>windows</family>
-            <arch>x86</arch>
-          </os>
-        </activation>
-        <properties>
-          <psf.magic.jna.arch>win32-x86</psf.magic.jna.arch>
-        </properties>
-      </profile>
-      <profile>
-        <id>linux-always-x86-64</id>
-        <activation>
-          <os>
-            <family>linux</family>
-          </os>
-        </activation>
-        <properties>
-          <psf.magic.jna.arch>linux-x86-64</psf.magic.jna.arch>
-        </properties>
-      </profile>
-    </profiles>
-    
     <modules>
         <module>common</module>
         <module>pslogin</module>

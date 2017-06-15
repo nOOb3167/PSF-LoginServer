@@ -95,24 +95,6 @@
           <groupId>net.alchim31.maven</groupId>
           <artifactId>scala-maven-plugin</artifactId>
           <version>3.2.2</version>
-          <configuration>
-            <launchers>
-              <launcher>
-                <id>scala-run-launcher</id>
-                <mainClass>PsLogin</mainClass>
-                <!-- java system property prog.home is read by psforever code (constructing config path) -->
-                <!-- java system property jna.library.path is read by JNA (loading pscrypto library).
-                       ideally the pscrypto-lib directory would be added to classpath, avoiding the property.
-                       (JNA 'knows' to check within a system dependent subdirectory (eg win32-x86-64)
-                        of classpath entries when searching for libraries) -->
-                <jvmArgs>
-                  <jvmArg>-Dprog.home=${psf.parent.project.basedir}</jvmArg>
-                  <jvmArg>-Djna.library.path=${psf.parent.project.basedir}/pscrypto-lib/${psf.magic.jna.arch}</jvmArg>
-                  <jvmArg>-Djna.debug_load=true</jvmArg>
-                </jvmArgs>
-              </launcher>
-            </launchers>
-          </configuration>
           <executions>
             <execution>
               <id>scala-compile</id>
@@ -130,16 +112,6 @@
                   <arg>utf8</arg>
                   <arg>-language:postfixOps</arg>
                 </args>
-              </configuration>
-            </execution>
-            <execution>
-              <id>scala-run</id>
-              <phase>none</phase>
-              <goals>
-                <goal>run</goal>
-              </goals>
-              <configuration>
-                <launcher>scala-run-launcher</launcher>
               </configuration>
             </execution>
           </executions>

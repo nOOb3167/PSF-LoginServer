@@ -25,6 +25,18 @@
         <artifactId>PSF-LoginServer-pslogin</artifactId>
         <version>0.1</version>
       </dependency>
+      <dependency>
+        <groupId>net.psforever.launcher</groupId>
+        <artifactId>PSF-LoginServer-Launcher_x32</artifactId>
+        <version>NOVERSION</version>
+        <type>exe</type>
+      </dependency>
+      <dependency>
+        <groupId>net.psforever.launcher</groupId>
+        <artifactId>PSF-LoginServer-Launcher_x64</artifactId>
+        <version>NOVERSION</version>
+        <type>exe</type>
+      </dependency>
     </dependencies>
     
     <build>
@@ -50,6 +62,26 @@
                 <archiveBaseDirectory>${psf.parent.project.basedir}</archiveBaseDirectory>
                 <attach>false</attach>
                 <recompressZippedFiles>false</recompressZippedFiles>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>1.6.0</version>
+          <executions>
+            <execution>
+              <id>run</id>
+              <goals>
+                <goal>exec</goal>
+              </goals>
+              <phase>none</phase>
+              <configuration>
+                <!-- maven-assembly-plugin configuration finalName + '-' + maven-assembly-plugin descriptor id -->
+                <!--   should have resulted in 'pack' + '-' + 'psf-distribution-default' -->
+                <executable>${project.build.directory}/pack-psf-distribution-default/bin/PSF-LoginServer-Launcher_x32</executable>
+                <workingDirectory>${project.build.directory}/pack-psf-distribution-default/</workingDirectory>
               </configuration>
             </execution>
           </executions>
